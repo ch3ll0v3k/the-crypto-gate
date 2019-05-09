@@ -1,0 +1,32 @@
+{
+  "name": "the-crypto-gate",
+  "version": "1.0.2",
+  "description": "The-crypto-gate: Blockchain API Library",
+  "main": "init.js",
+  "scripts": {
+    "deploy": "node ./deploy.js"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "keywords": [
+    "Blockchain API",
+    "BTC",
+    "crypto-currency"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ch3ll0v3k/the-crypto-gate.git"
+  },
+  "files": [
+    "src"
+  ],
+  "author": "https://github.com/ch3ll0v3k",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "mii-logger.js": "^1.1.62"
+  }
+}
