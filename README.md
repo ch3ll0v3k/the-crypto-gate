@@ -1,6 +1,6 @@
 ### TheCryptoGate.com Blockchain API (BTC, ...)
 
-[![npm version](https://badge.fury.io/js/mii-logger.js.svg)](https://badge.fury.io/js/mii-logger.js)
+[![npm version](https://badge.fury.io/js/the-crypto-gate.svg)](https://badge.fury.io/js/the-crypto-gate)
 
 ### Install:
 
