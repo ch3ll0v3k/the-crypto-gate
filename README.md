@@ -33,26 +33,6 @@ const TCG = new theCryptoGate({
 
 ```
 
-
------
-
-#### Method: getAddressBalance
-```javascript
-const balanceRes = await = TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
-
-// On-Success
-{
-  "code": 200,
-  "msg": "OK",
-  "data": {
-    "balance": 0.00137764,
-    "confirmed": 0.00137764,
-    "unconfirmed": 0
-  }
-}
-
-```
-
 -----
 
 #### Method: getAddressBalance
@@ -87,6 +67,14 @@ const balanceRes = await = TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
 #### Method: getAddressUnspent
 
+```
+Get all unspent transactions (UTXO) from Address
+
+WARNING:
+  Only for advanced users. You can lose all your Crypto
+
+```
+
 ```javascript
 const res = await = TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 
@@ -96,7 +84,7 @@ const res = await = TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' 
   "msg": "OK",
   "data": [
     {
-      "tx_hash": "40613da5d01929b24a7de66b499874f1f23a072bebd3935c81bdf7a1caeffa73",
+      "tx_hash": "c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935",
       "tx_pos": 1,
       "height": 575219,
       "value": 137764, // amount ins Sat.
@@ -122,6 +110,10 @@ const res = await = TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
 
 #### Method: pushRawTransaction
 
+```
+Broadcast your created Transaction into the Blockchain
+```
+
 ```javascript
 const res = await = TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
 
@@ -129,7 +121,10 @@ const res = await = TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ..
 {
   "code": 200,
   "msg": "OK",
-  "data": "c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935" // pushed transaction hash
+  "data": {
+    // Pushed transaction hash
+    "hash": "c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935",
+  }
 }
 
 ```
@@ -149,8 +144,13 @@ const res = await = TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
 
 #### Method: getTransactionByHash
 
+```
+Fetch transaction from Blockchain by hash,
+
+```
+
 ```javascript
-const res = await = TCG.getTransactionByHash( '40613da5d01929b24a7de66b499874f1f23a072bebd3935c81bdf7a1caeffa73' ));
+const res = await = TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935' ));
 
 // On-Success
 {
@@ -158,8 +158,8 @@ const res = await = TCG.getTransactionByHash( '40613da5d01929b24a7de66b499874f1f
   "msg": "OK",
   "data": {
     "transaction": {
-      "txid": "40613da5d01929b24a7de66b499874f1f23a072bebd3935c81bdf7a1caeffa73",
-      "hash": "40613da5d01929b24a7de66b499874f1f23a072bebd3935c81bdf7a1caeffa73",
+      "txid": "c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935",
+      "hash": "c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935",
       "version": 2,
       "size": 226,
       "vsize": 226,
@@ -222,8 +222,8 @@ const res = await = TCG.getBlockByID( 575217 );
 #### Method: estimateSmartFee
 
 ```
-Get best transaction fee for moment.
-With in next blocks: Min 2, Max Inf.
+Get the best transaction fee for the moment.
+Within next blocks: Min 2, Max Inf.
 
 The lower <withInNextBlocks>, the heigher <tx-fee> will be
 
@@ -257,7 +257,7 @@ const res = await = TCG.estimateSmartFee( <With in next blocks> );
 #### Method: getKeyPair
 
 ```
-Create new CryptoPair => Public && Private key
+Create new (random) CryptoPair => Public && Private key
 
 WARNING: 
   You must store it in your own database of all funds will be lost
@@ -265,20 +265,19 @@ WARNING:
 ```
 
 ```javascript
-const res = await = TCG.estimateSmartFee( <with-In-Next- N* -Blocks> ); // MIN: 2, MAX: Inf.
 
-// The lower <withInNextBlocks>, the heigher <tx-fee> will be
+const KeyPair = await TCG.getKeyPair();
 
 // On-Success
 {
-"code": 200,
-"msg": "OK",
-"data": {
-  "perKiloByte": 0.00081461,
-  "perByte": 7.95518e-7,
-  "avgTxBytes": 195,
-  "avgTxCoastBtc": 0.00015513,
-  "withInNextBlocks": 2
+  "code": 200,
+  "msg": "OK",
+  "data": {
+    "symbol": "BTC",
+    "sec_key": "L1xx81HHJhNFJdmU5soiL1SbYzmZ6Anu8GdtiUE7GDifzViy6rwj",
+    "pub_key": "1MD1LWPp3uj53ithDs9ygMi2tFkB3vt27V",
+    "encrypted": false
+  }
 }
 
 // On- (Error || Warning)
