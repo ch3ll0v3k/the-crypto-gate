@@ -5,9 +5,9 @@ https://www.npmjs.com/package/the-crypto-gate
 
 -----
 - Legend:
-
-  - [getAddressBalance](#method-getaddressbalance)
-  - [getAddressUnspent](#method-getAddressUnspent)
+  - Methods:
+    - [getAddressBalance](#method-getaddressbalance)
+    - [getAddressUnspent](#method-getAddressUnspent)
 
 -----
 
@@ -16,6 +16,9 @@ https://www.npmjs.com/package/the-crypto-gate
 ```bash
 npm i the-crypto-gate --save
 ```
+
+-----
+#### Require && set-up apiKey:
 
 ```javascript
 const theCryptoGate = require('the-crypto-gate');
@@ -44,6 +47,7 @@ const balanceRes = await = TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgX
 }
 
 ```
+
 ```javascript
 const balanceRes = await = TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
@@ -60,11 +64,9 @@ const balanceRes = await = TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 #### Method: getAddressUnspent
 
 ```javascript
-const logger = require('mii-logger.js');
-
 const res = await = TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
-console.json( res );
 
+// On-Success
 {
   "code": 200,
   "msg": "OK",
@@ -73,55 +75,60 @@ console.json( res );
       "tx_hash": "40613da5d01929b24a7de66b499874f1f23a072bebd3935c81bdf7a1caeffa73",
       "tx_pos": 1,
       "height": 575219,
-      "value": 137764,
+      "value": 137764, // amount ins Sat.
       "balance": 0.00137764
     }
   ]
 }
+```
 
+```javascript
 const res = await = TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
-console.json( res );
 
+// On- (Error || Warning)
 {
-  "code": 500,
+  "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
   "data": {}
 }
 
 ```
 
-#### push-raw-transaction
+-----
+
+#### Method: pushRawTransaction
+
 ```javascript
-const logger = require('mii-logger.js');
-
 const res = await = TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
-console.json( res );
 
+// On-Success
 {
   "code": 200,
   "msg": "OK",
   "data": "c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935" // pushed transaction hash
 }
 
-const res = await = TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
-console.json( res );
+```
 
+```javascript
+const res = await = TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
+
+// On- (Error || Warning)
 {
-  "code": 500,
+  "code": <code>, // !200
   "msg": "Transaction already in block chain",
   "data": {}
 }
 ```
 
-#### get-transaction-by-hash
+-----
+
+#### Method: getTransactionByHash
 
 ```javascript
-const logger = require('mii-logger.js');
-
 const res = await = TCG.getTransactionByHash( '40613da5d01929b24a7de66b499874f1f23a072bebd3935c81bdf7a1caeffa73' ));
-console.json( res );
 
-
+// On-Success
 {
   "code": 200,
   "msg": "OK",
@@ -142,16 +149,17 @@ console.json( res );
   }
 }
 
-const res = await = TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
-console.json( res );
+```
 
+```javascript
+const res = await = TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
+
+// On- (Error || Warning)
 {
   "code": 400,
   "msg": "Not valid Transaction Hash",
   "data": {}
 }
-
-// Or if not found
 
 {
   "code": 500,
@@ -161,14 +169,14 @@ console.json( res );
 
 ```
 
-#### get-block-by-id
+-----
+
+#### Method: getBlockByID
 
 ```javascript
-const logger = require('mii-logger.js');
-
 const res = await = TCG.getBlockByID( 575217 );
-console.json( res );
 
+// On-Success
 {
   "code": 200,
   "msg": "OK",
@@ -177,7 +185,7 @@ console.json( res );
   }
 }
 
-// on error
+// On- (Error || Warning)
 {
   "code": <code>,
   "msg": "<description>",
