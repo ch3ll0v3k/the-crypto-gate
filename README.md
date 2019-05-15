@@ -4,9 +4,10 @@ https://www.npmjs.com/package/the-crypto-gate
 [![npm version](https://badge.fury.io/js/the-crypto-gate.svg)](https://badge.fury.io/js/the-crypto-gate)
 
 -----
-Legend:
-  [*] - [getAddressBalance](#method-getaddressbalance)
-  [*] - [getAddressUnspent](#method-getAddressUnspent)
+- Legend:
+
+  - [getAddressBalance](#method-getaddressbalance)
+  - [getAddressUnspent](#method-getAddressUnspent)
 
 -----
 
