@@ -288,3 +288,81 @@ const KeyPair = await TCG.getKeyPair();
   "data": {}
 }
 ```
+
+-----
+
+#### Info: Create && Broadcast Transaction
+
+```javascript
+Optianal: options:{
+
+  allowDust:
+    "Allow send vary small amount (dust)"
+
+  feeType:
+    "Try send within next blocks. Can be any of ( 2,3,4,5,6 ). Default: 3"
+
+  tryToFitTxFee:
+    "if amount plus Tx-Fee is less than total balance, it will try reduce dest. amount to fit transaction cost in transaction itself."
+    "NOTE: Works only if dest object contains 1 dest. address"
+
+}
+
+```
+
+```javascript
+
+// Send to many ...
+const sendOutToMany = [
+  {address: '1GPwAmZFSZ3vFy1mfJqpDcNqrmXZjMxYV', amount: 0.034},
+  {address: '1mfJqpDcNqrmXZjMxYV1GPwAmZFSZ3vFy', amount: 0.012},
+  {address: '1mZFSZ3vFyfJqpDcNqrmXZjMxYVm1GPwA', amount: 0.787},
+];
+
+// Send to one ...
+const sendOutToOne = [
+  {address: '1GPwAmZFSZ3vFy1mfJqpDcNqrmXZjMxYV', amount: (+aliceBalanceRes.data.balance) },
+];
+
+```
+
+```javascript
+const aliceBalanceRes = await TCG.getAddressBalance( Keys.alice.pub_key );
+
+// Optianal: options
+const options = {
+  allowDust: false,
+  feeType: 3,
+  tryToFitTxFee: true,
+};
+
+const sendOutToOne = [
+  {address: '1GPwAmZFSZ3vFy1mfJqpDcNqrmXZjMxYV', amount: (+aliceBalanceRes.data.balance) },
+];
+
+const TxRes = await TCG.createRawTransaction( Keys.alice.sec_key, sendOutToOne, options );
+
+{
+  code: 200, 
+  msg: 'Transaction is ready to be broadcasted',
+  data: {
+    raw_tx: 'abcd234569cdef......',
+  }
+}
+
+if( TxRes.code !== 200 ){
+  console.error( TxRes.msg );
+  return;
+}
+
+// Broadcast transaction into Blockchain
+const pushRawTxRes = await TCG.pushRawTransaction( TxRes.data.raw_tx );
+
+if( pushRawTxRes.code !== 200 ){
+  console.error( TxRes.msg );
+  return;
+}
+
+// Success
+console.log( TxRes.data.hash );
+```
