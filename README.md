@@ -12,7 +12,10 @@ https://www.npmjs.com/package/the-crypto-gate
     - [getTransactionByHash](#method-gettransactionbyhash)
     - [getBlockByID](#method-getblockbyid)
     - [estimateSmartFee](#method-estimatesmartfee)
-    - [getKeyPair](#method-getkeypair)
+
+  - HowTo:
+    - [Create && Broadcast transaction](#info-create--broadcast-transaction)
+    - [Create new random Crypto KeyPair](#method-getkeypair)
 
 -----
 
@@ -294,7 +297,7 @@ const KeyPair = await TCG.getKeyPair();
 #### Info: Create && Broadcast Transaction
 
 ```javascript
-Optianal: options:{
+options (optional):{
 
   allowDust:
     "Allow send vary small amount (dust)"
