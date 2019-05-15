@@ -12,6 +12,7 @@ https://www.npmjs.com/package/the-crypto-gate
     - [getTransactionByHash](#method-gettransactionbyhash)
     - [getBlockByID](#method-getblockbyid)
     - [estimateSmartFee](#method-estimatesmartfee)
+    - [getKeyPair](#method-getkeypair)
 
 -----
 
@@ -198,7 +199,7 @@ const res = await = TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
 #### Method: getBlockByID
 
 ```javascript
-const res = await = TCG.getBlockByID( 575217 );
+const res = await TCG.getBlockByID( 575217 );
 
 // On-Success
 {
@@ -260,7 +261,7 @@ const res = await = TCG.estimateSmartFee( <With in next blocks> );
 Create new (random) CryptoPair => Public && Private key
 
 WARNING: 
-  You must store it in your own database of all funds will be lost
+  You must store it in your own database or you will lose all your Crypto 
 
 ```
 
