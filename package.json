@@ -1,6 +1,6 @@
 {
   "name": "the-crypto-gate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The-crypto-gate: Blockchain API Library",
   "main": "init.js",
   "scripts": {
@@ -24,7 +24,11 @@
   "author": "https://github.com/ch3ll0v3k",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "bitcoinjs-lib": "^5.0.3",
+    "keythereum": "^1.0.4",
+    "litecore-lib": "^0.13.22",
+    "wif": "^2.0.6"
   },
   "devDependencies": {
     "mii-logger.js": "^1.1.62"
