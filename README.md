@@ -41,7 +41,7 @@ const TCG = new theCryptoGate({
 
 #### Method: getAddressBalance
 ```javascript
-const balanceRes = await = TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
+const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 
 // On-Success
 {
@@ -57,7 +57,7 @@ const balanceRes = await = TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgX
 ```
 
 ```javascript
-const balanceRes = await = TCG.getAddressBalance( 'WRONG-ADDRESS' ));
+const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
 // On- (Error || Warning)
 {
@@ -80,7 +80,7 @@ WARNING:
 ```
 
 ```javascript
-const res = await = TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
+const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 
 // On-Success
 {
@@ -99,7 +99,7 @@ const res = await = TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' 
 ```
 
 ```javascript
-const res = await = TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
+const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
 
 // On- (Error || Warning)
 {
@@ -119,7 +119,7 @@ Broadcast your created Transaction into the Blockchain
 ```
 
 ```javascript
-const res = await = TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
+const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
 
 // On-Success
 {
@@ -134,7 +134,7 @@ const res = await = TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ..
 ```
 
 ```javascript
-const res = await = TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
+const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
 
 // On- (Error || Warning)
 {
@@ -154,7 +154,7 @@ Fetch transaction from Blockchain by hash,
 ```
 
 ```javascript
-const res = await = TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935' ));
+const res = await TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935' ));
 
 // On-Success
 {
@@ -180,7 +180,7 @@ const res = await = TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b2
 ```
 
 ```javascript
-const res = await = TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
+const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
 
 // On- (Error || Warning)
 {
@@ -234,7 +234,7 @@ The lower <withInNextBlocks>, the heigher <tx-fee> will be
 ```
 
 ```javascript
-const res = await = TCG.estimateSmartFee( <With in next blocks> );
+const res = await TCG.estimateSmartFee( <With in next blocks> );
 
 // On-Success
 {
