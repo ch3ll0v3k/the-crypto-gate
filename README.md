@@ -7,7 +7,10 @@ https://www.npmjs.com/package/the-crypto-gate
 - Legend:
   - Methods:
     - [getAddressBalance](#method-getaddressbalance)
-    - [getAddressUnspent](#method-getAddressUnspent)
+    - [getAddressUnspent](#method-getaddressunspent)
+    - [pushRawTransaction](#method-pushrawtransaction)
+    - [getTransactionByHash](#method-gettransactionbyhash)
+    - [getBlockByID](#method-getblockbyid)
 
 -----
 
