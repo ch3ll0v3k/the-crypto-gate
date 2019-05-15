@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/the-crypto-gate.svg)](https://badge.fury.io/js/the-crypto-gate)
 
+https://www.npmjs.com/package/the-crypto-gate
 ### Install:
 
 ```bash
@@ -17,7 +18,9 @@ const TCG = new theCryptoGate({
 
 ```
 
-#### get-address-balance
+-----
+
+#### Method: getAddressBalance
 ```javascript
 const logger = require('mii-logger.js');
 
@@ -177,4 +180,3 @@ console.json( res );
 
 
 
-# the-crypto-gate
