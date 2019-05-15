@@ -1,9 +1,16 @@
 ### TheCryptoGate.com Blockchain API (BTC, ...)
+https://www.npmjs.com/package/the-crypto-gate
 
 [![npm version](https://badge.fury.io/js/the-crypto-gate.svg)](https://badge.fury.io/js/the-crypto-gate)
 
-https://www.npmjs.com/package/the-crypto-gate
-### Install:
+-----
+Legend:
+  [*] - [getAddressBalance](#method-getaddressbalance)
+  [*] - [getAddressUnspent](#method-getAddressUnspent)
+
+-----
+
+#### Install:
 
 ```bash
 npm i the-crypto-gate --save
@@ -22,12 +29,9 @@ const TCG = new theCryptoGate({
 
 #### Method: getAddressBalance
 ```javascript
-const logger = require('mii-logger.js');
+const balanceRes = await = TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 
-
-const res = await = TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
-console.json( res );
-
+// On-Success
 {
   "code": 200,
   "msg": "OK",
@@ -38,19 +42,22 @@ console.json( res );
   }
 }
 
-const res = await = TCG.getAddressBalance( 'WRONG-ADDRESS' ));
-console.json( res );
+```
+```javascript
+const balanceRes = await = TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
+// On- (Error || Warning)
 {
-  "code": 500,
+  "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
-  "data": {}
 }
 
 ```
 
+-----
 
-#### get-address-unspent
+#### Method: getAddressUnspent
+
 ```javascript
 const logger = require('mii-logger.js');
 
