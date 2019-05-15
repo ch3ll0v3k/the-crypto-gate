@@ -11,6 +11,7 @@ https://www.npmjs.com/package/the-crypto-gate
     - [pushRawTransaction](#method-pushrawtransaction)
     - [getTransactionByHash](#method-gettransactionbyhash)
     - [getBlockByID](#method-getblockbyid)
+    - [estimateSmartFee](#method-estimatesmartfee)
 
 -----
 
@@ -29,6 +30,26 @@ const theCryptoGate = require('the-crypto-gate');
 const TCG = new theCryptoGate({
   apiKey: '<my-key>',
 });
+
+```
+
+
+-----
+
+#### Method: getAddressBalance
+```javascript
+const balanceRes = await = TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
+
+// On-Success
+{
+  "code": 200,
+  "msg": "OK",
+  "data": {
+    "balance": 0.00137764,
+    "confirmed": 0.00137764,
+    "unconfirmed": 0
+  }
+}
 
 ```
 
@@ -194,8 +215,76 @@ const res = await = TCG.getBlockByID( 575217 );
   "msg": "<description>",
   "data": {}
 }
+```
 
+-----
 
+#### Method: estimateSmartFee
 
+```
+Get best transaction fee for moment.
+With in next blocks: Min 2, Max Inf.
 
+The lower <withInNextBlocks>, the heigher <tx-fee> will be
 
+```
+
+```javascript
+const res = await = TCG.estimateSmartFee( <With in next blocks> );
+
+// On-Success
+{
+"code": 200,
+"msg": "OK",
+"data": {
+  "perKiloByte": 0.00081461,
+  "perByte": 7.95518e-7,
+  "avgTxBytes": 195,
+  "avgTxCoastBtc": 0.00015513,
+  "withInNextBlocks": 2
+}
+
+// On- (Error || Warning)
+{
+  "code": <code>,
+  "msg": "<description>",
+  "data": {}
+}
+```
+
+-----
+
+#### Method: getKeyPair
+
+```
+Create new CryptoPair => Public && Private key
+
+WARNING: 
+  You must store it in your own database of all funds will be lost
+
+```
+
+```javascript
+const res = await = TCG.estimateSmartFee( <with-In-Next- N* -Blocks> ); // MIN: 2, MAX: Inf.
+
+// The lower <withInNextBlocks>, the heigher <tx-fee> will be
+
+// On-Success
+{
+"code": 200,
+"msg": "OK",
+"data": {
+  "perKiloByte": 0.00081461,
+  "perByte": 7.95518e-7,
+  "avgTxBytes": 195,
+  "avgTxCoastBtc": 0.00015513,
+  "withInNextBlocks": 2
+}
+
+// On- (Error || Warning)
+{
+  "code": <code>,
+  "msg": "<description>",
+  "data": {}
+}
+```
