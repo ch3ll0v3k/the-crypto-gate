@@ -75,8 +75,10 @@ app.get('/my-custom/api/address/get-balance/:address', async(req, res)=>{
 #### Method: getAddressBalance
 ```javascript
 const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
+```
 
-// On-Success
+On-Success
+```json
 {
   "code": 200,
   "msg": "OK",
@@ -92,7 +94,10 @@ const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPy
 ```javascript
 const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
-// On- (Error || Warning)
+```
+
+On- (Error || Warning)
+```json
 {
   "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
@@ -109,13 +114,15 @@ Get all unspent transactions (UTXO) from Address
 
 WARNING:
   Only for advanced users. You can lose all your Crypto
-
 ```
 
 ```javascript
 const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 
-// On-Success
+```
+
+On-Success
+```json
 {
   "code": 200,
   "msg": "OK",
@@ -133,8 +140,10 @@ const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ))
 
 ```javascript
 const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
+```
 
-// On- (Error || Warning)
+On- (Error || Warning)
+```json
 {
   "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
@@ -142,7 +151,6 @@ const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
 }
 
 ```
-
 -----
 
 #### Method: pushRawTransaction
@@ -153,8 +161,10 @@ Broadcast your created Transaction into the Blockchain
 
 ```javascript
 const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
+```
 
-// On-Success
+On-Success
+```json
 {
   "code": 200,
   "msg": "OK",
@@ -163,13 +173,14 @@ const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....
     "hash": "c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935",
   }
 }
-
 ```
 
 ```javascript
 const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
+```
 
-// On- (Error || Warning)
+On- (Error || Warning)
+```json
 {
   "code": <code>, // !200
   "msg": "Transaction already in block chain",
@@ -183,13 +194,13 @@ const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
 
 ```
 Fetch transaction from Blockchain by hash,
-
 ```
 
 ```javascript
 const res = await TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935' ));
-
-// On-Success
+```
+On-Success
+```json
 {
   "code": 200,
   "msg": "OK",
@@ -214,20 +225,23 @@ const res = await TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a
 
 ```javascript
 const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
+```
 
-// On- (Error || Warning)
+On- (Error || Warning)
+```json
 {
   "code": 400,
   "msg": "Not valid Transaction Hash",
   "data": {}
 }
+```
 
+```json
 {
   "code": 500,
   "msg": "No such mempool or blockchain transaction. Use gettransaction for wallet transactions",
   "data": {}
 }
-
 ```
 
 -----
@@ -236,8 +250,10 @@ const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
 
 ```javascript
 const res = await TCG.getBlockByID( 575217 );
+```
 
-// On-Success
+On-Success
+```json
 {
   "code": 200,
   "msg": "OK",
