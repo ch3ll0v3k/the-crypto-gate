@@ -95,7 +95,8 @@ On-Success
 const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
 ```
-[(https://github.com/ch3ll0v3k/the-crypto-gate/raw/master/git-imgs/200.small.png)](On-Success) On- (Error || Warning)
+[![200](https://github.com/ch3ll0v3k/the-crypto-gate/raw/master/git-imgs/200.small.png)](On-Success) On- (Error || Warning)
+
 ```javascript
 {
   "code": <code>, // !200
