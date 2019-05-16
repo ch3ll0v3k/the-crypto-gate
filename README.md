@@ -77,7 +77,7 @@ app.get('/my-custom/api/address/get-balance/:address', async(req, res)=>{
 const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 ```
 
-On-Success
+![Logo](git-imgs/200.24px.png) Success
 ```javascript
 {
   "code": 200,
@@ -95,11 +95,8 @@ On-Success
 const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
 ```
-[![200](https://github.com/ch3ll0v3k/the-crypto-gate/raw/master/git-imgs/200.small.png)](On-Success) On- (Error || Warning)
 
-![Logo](git-imgs/200.small.png)
-![Logo](git-imgs/200.24px.png)
-
+![Logo](git-imgs/500.24px.png) Error or Warning
 ```javascript
 {
   "code": <code>, // !200
