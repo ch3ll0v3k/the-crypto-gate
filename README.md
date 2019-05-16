@@ -74,7 +74,7 @@ app.get('/my-custom/api/address/get-balance/:address', async(req, res)=>{
 
 #### Method: getAddressBalance
 
-![Logo](git-imgs/200.18px.png) Success
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/200.18px.png) Success
 ```javascript
 
 const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
@@ -91,7 +91,7 @@ const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPy
 
 ```
 
-![Logo](git-imgs/500.18px.png) Error or Warning
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/500.18px.png) Error or Warning
 ```javascript
 
 const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
@@ -114,7 +114,7 @@ WARNING:
   Only for advanced users. You can lose all your Crypto
 ```
 
-![Logo](git-imgs/200.18px.png) Success
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/200.18px.png) Success
 ```javascript
 
 const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
@@ -134,7 +134,7 @@ const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ))
 }
 ```
 
-![Logo](git-imgs/500.18px.png) Error or Warning
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/500.18px.png) Error or Warning
 ```javascript
 const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
 
@@ -152,7 +152,7 @@ const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
 Broadcast your created Transaction into the Blockchain
 ```
 
-![Logo](git-imgs/200.18px.png) Success
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/200.18px.png) Success
 ```javascript
 
 const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
@@ -167,7 +167,7 @@ const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....
 }
 ```
 
-![Logo](git-imgs/500.18px.png) Error or Warning
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/500.18px.png) Error or Warning
 ```javascript
 
 const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
@@ -187,7 +187,7 @@ const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
 Fetch transaction from Blockchain by hash,
 ```
 
-![Logo](git-imgs/200.18px.png) Success
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/200.18px.png) Success
 ```javascript
 
 const res = await TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935' ));
@@ -214,7 +214,7 @@ const res = await TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a
 
 ```
 
-![Logo](git-imgs/500.18px.png) Error or Warning
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/500.18px.png) Error or Warning
 ```javascript
 
 const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
@@ -238,7 +238,7 @@ const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
 
 #### Method: getBlockByID
 
-![Logo](git-imgs/200.18px.png) Success
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/200.18px.png) Success
 ```javascript
 
 const res = await TCG.getBlockByID( 575217 );
@@ -252,7 +252,7 @@ const res = await TCG.getBlockByID( 575217 );
 }
 ```
 
-![Logo](git-imgs/500.18px.png) Error or Warning
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
   "code": <int>, // !200
@@ -272,7 +272,7 @@ Within next blocks: Min 2, Max Inf.
 The lower <withInNextBlocks>, the heigher <tx-fee> will be
 ```
 
-![Logo](git-imgs/200.18px.png) Success
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/200.18px.png) Success
 ```javascript
 const res = await TCG.estimateSmartFee( <With in next blocks> );
 
@@ -289,7 +289,7 @@ const res = await TCG.estimateSmartFee( <With in next blocks> );
 }
 ```
 
-![Logo](git-imgs/500.18px.png) Error or Warning
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
   "code": <int>, // !200
@@ -309,7 +309,7 @@ WARNING:
   You must store it in your own database or you will lose all your Crypto 
 ```
 
-![Logo](git-imgs/200.18px.png) Success
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/200.18px.png) Success
 ```javascript
 const KeyPair = await TCG.getKeyPair();
 
@@ -325,7 +325,7 @@ const KeyPair = await TCG.getKeyPair();
 }
 ```
 
-![Logo](git-imgs/500.18px.png) Error or Warning
+![Logo](https://raw.githubusercontent.com/ch3ll0v3k/the-crypto-gate/master/git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
   "code": <int>, // !200
