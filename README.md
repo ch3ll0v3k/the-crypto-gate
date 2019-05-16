@@ -73,12 +73,12 @@ app.get('/my-custom/api/address/get-balance/:address', async(req, res)=>{
 -----
 
 #### Method: getAddressBalance
-```javascript
-const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
-```
 
 ![Logo](git-imgs/200.18px.png) Success
 ```javascript
+
+const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
+
 {
   "code": 200,
   "msg": "OK",
@@ -91,13 +91,11 @@ const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPy
 
 ```
 
-```javascript
-const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
-
-```
-
 ![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
+
+const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
+
 {
   "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
