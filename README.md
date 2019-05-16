@@ -58,7 +58,7 @@ app.get('/my-custom/api/address/get-balance/:address', async(req, res)=>{
 });
 ```
 
-```json
+```javascript
 {
   "code": 200,
   "msg": "OK",
@@ -78,7 +78,7 @@ const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPy
 ```
 
 On-Success
-```json
+```javascript
 {
   "code": 200,
   "msg": "OK",
@@ -95,9 +95,8 @@ On-Success
 const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
 ```
-
-On- (Error || Warning)
-```json
+[(https://github.com/ch3ll0v3k/the-crypto-gate/raw/master/git-imgs/200.small.png)](On-Success) On- (Error || Warning)
+```javascript
 {
   "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
@@ -122,7 +121,7 @@ const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ))
 ```
 
 On-Success
-```json
+```javascript
 {
   "code": 200,
   "msg": "OK",
@@ -143,7 +142,7 @@ const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
 ```
 
 On- (Error || Warning)
-```json
+```javascript
 {
   "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
@@ -164,7 +163,7 @@ const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....
 ```
 
 On-Success
-```json
+```javascript
 {
   "code": 200,
   "msg": "OK",
@@ -180,7 +179,7 @@ const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
 ```
 
 On- (Error || Warning)
-```json
+```javascript
 {
   "code": <code>, // !200
   "msg": "Transaction already in block chain",
@@ -200,7 +199,7 @@ Fetch transaction from Blockchain by hash,
 const res = await TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935' ));
 ```
 On-Success
-```json
+```javascript
 {
   "code": 200,
   "msg": "OK",
@@ -228,7 +227,7 @@ const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
 ```
 
 On- (Error || Warning)
-```json
+```javascript
 {
   "code": 400,
   "msg": "Not valid Transaction Hash",
@@ -236,7 +235,7 @@ On- (Error || Warning)
 }
 ```
 
-```json
+```javascript
 {
   "code": 500,
   "msg": "No such mempool or blockchain transaction. Use gettransaction for wallet transactions",
@@ -253,7 +252,7 @@ const res = await TCG.getBlockByID( 575217 );
 ```
 
 On-Success
-```json
+```javascript
 {
   "code": 200,
   "msg": "OK",
@@ -261,8 +260,10 @@ On-Success
     ...
   }
 }
+```
 
-// On- (Error || Warning)
+On- (Error || Warning)
+```javascript
 {
   "code": <code>,
   "msg": "<description>",
