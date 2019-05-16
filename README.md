@@ -96,11 +96,7 @@ const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPy
 
 const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
-{
-  "code": <code>, // !200
-  "msg": "WRONG-ADDRESS has no matching Script",
-}
-
+{ "code": <code>, "msg": "Description ..." }
 ```
 
 -----
@@ -114,13 +110,11 @@ WARNING:
   Only for advanced users. You can lose all your Crypto
 ```
 
+![Logo](git-imgs/200.18px.png) Success
 ```javascript
+
 const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 
-```
-
-On-Success
-```javascript
 {
   "code": 200,
   "msg": "OK",
@@ -136,12 +130,11 @@ On-Success
 }
 ```
 
+![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
-const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
-```
 
-On- (Error || Warning)
-```javascript
+const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
+
 {
   "code": <code>, // !200
   "msg": "WRONG-ADDRESS has no matching Script",
@@ -157,12 +150,11 @@ On- (Error || Warning)
 Broadcast your created Transaction into the Blockchain
 ```
 
+![Logo](git-imgs/200.18px.png) Success
 ```javascript
-const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
-```
 
-On-Success
-```javascript
+const res = await TCG.pushRawTransaction( '02000000016d97be4cf0fafccb85b37b ....' ));
+
 {
   "code": 200,
   "msg": "OK",
@@ -173,12 +165,11 @@ On-Success
 }
 ```
 
+![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
-const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
-```
 
-On- (Error || Warning)
-```javascript
+const res = await TCG.pushRawTransaction( 'EXISTING TRANSACTION-HASH' ));
+
 {
   "code": <code>, // !200
   "msg": "Transaction already in block chain",
@@ -194,11 +185,11 @@ On- (Error || Warning)
 Fetch transaction from Blockchain by hash,
 ```
 
+![Logo](git-imgs/200.18px.png) Success
 ```javascript
+
 const res = await TCG.getTransactionByHash( 'c81bdf7a1caeffa7340613da5d01929b24a7de66b499874f1f23a072bebd3935' ));
-```
-On-Success
-```javascript
+
 {
   "code": 200,
   "msg": "OK",
@@ -221,12 +212,11 @@ On-Success
 
 ```
 
+![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
-const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
-```
 
-On- (Error || Warning)
-```javascript
+const res = await TCG.getTransactionByHash( 'WRONG-TRANSACTION-HASH' ));
+
 {
   "code": 400,
   "msg": "Not valid Transaction Hash",
@@ -246,12 +236,11 @@ On- (Error || Warning)
 
 #### Method: getBlockByID
 
+![Logo](git-imgs/200.18px.png) Success
 ```javascript
-const res = await TCG.getBlockByID( 575217 );
-```
 
-On-Success
-```javascript
+const res = await TCG.getBlockByID( 575217 );
+
 {
   "code": 200,
   "msg": "OK",
@@ -261,7 +250,7 @@ On-Success
 }
 ```
 
-On- (Error || Warning)
+![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
   "code": <code>,
@@ -274,30 +263,32 @@ On- (Error || Warning)
 
 #### Method: estimateSmartFee
 
-```
+
 Get the best transaction fee for the moment.
 Within next blocks: Min 2, Max Inf.
 
 The lower <withInNextBlocks>, the heigher <tx-fee> will be
 
-```
 
+![Logo](git-imgs/200.18px.png) Success
 ```javascript
 const res = await TCG.estimateSmartFee( <With in next blocks> );
 
-// On-Success
 {
-"code": 200,
-"msg": "OK",
-"data": {
-  "perKiloByte": 0.00081461,
-  "perByte": 7.95518e-7,
-  "avgTxBytes": 195,
-  "avgTxCoastBtc": 0.00015513,
-  "withInNextBlocks": 2
+  "code": 200,
+  "msg": "OK",
+  "data": {
+    "perKiloByte": 0.00081461,
+    "perByte": 7.95518e-7,
+    "avgTxBytes": 195,
+    "avgTxCoastBtc": 0.00015513,
+    "withInNextBlocks": 2
+  }
 }
+```
 
-// On- (Error || Warning)
+![Logo](git-imgs/500.18px.png) Error or Warning
+```javascript
 {
   "code": <code>,
   "msg": "<description>",
@@ -309,19 +300,17 @@ const res = await TCG.estimateSmartFee( <With in next blocks> );
 
 #### Method: getKeyPair
 
-```
+
 Create new (random) CryptoPair => Public && Private key
 
 WARNING: 
   You must store it in your own database or you will lose all your Crypto 
 
-```
 
+![Logo](git-imgs/200.18px.png) Success
 ```javascript
-
 const KeyPair = await TCG.getKeyPair();
 
-// On-Success
 {
   "code": 200,
   "msg": "OK",
@@ -332,8 +321,10 @@ const KeyPair = await TCG.getKeyPair();
     "encrypted": false
   }
 }
+```
 
-// On- (Error || Warning)
+![Logo](git-imgs/500.18px.png) Error or Warning
+```javascript
 {
   "code": <code>,
   "msg": "<description>",
@@ -345,37 +336,32 @@ const KeyPair = await TCG.getKeyPair();
 
 #### Info: Create && Broadcast Transaction
 
+options (optional):
+  - allowDust: 
+    Allow send vary small amount (dust)
+
+  - feeType: 
+    Try send within next blocks. Can be any of ( 2,3,4,5,6 ). Default: 3
+
+  - tryToFitTxFee:
+    if amount plus Tx-Fee is less than total balance, it will try reduce dest. amount to fit transaction cost in transaction itself.
+    NOTE: Works only if dest object contains 1 dest. address
+
+###### Send to many ...
 ```javascript
-options (optional):{
-
-  allowDust:
-    "Allow send vary small amount (dust)"
-
-  feeType:
-    "Try send within next blocks. Can be any of ( 2,3,4,5,6 ). Default: 3"
-
-  tryToFitTxFee:
-    "if amount plus Tx-Fee is less than total balance, it will try reduce dest. amount to fit transaction cost in transaction itself."
-    "NOTE: Works only if dest object contains 1 dest. address"
-
-}
-
-```
-
-```javascript
-
-// Send to many ...
 const sendOutToMany = [
   {address: '1GPwAmZFSZ3vFy1mfJqpDcNqrmXZjMxYV', amount: 0.034},
   {address: '1mfJqpDcNqrmXZjMxYV1GPwAmZFSZ3vFy', amount: 0.012},
   {address: '1mZFSZ3vFyfJqpDcNqrmXZjMxYVm1GPwA', amount: 0.787},
 ];
 
-// Send to one ...
+```
+
+###### Send to one ...
+```javascript
 const sendOutToOne = [
   {address: '1GPwAmZFSZ3vFy1mfJqpDcNqrmXZjMxYV', amount: (+aliceBalanceRes.data.balance) },
 ];
-
 ```
 
 ```javascript
@@ -406,8 +392,10 @@ if( TxRes.code !== 200 ){
   console.error( TxRes.msg );
   return;
 }
+```
 
-// Broadcast transaction into Blockchain
+###### Broadcast transaction into Blockchain
+```javascript
 const pushRawTxRes = await TCG.pushRawTransaction( TxRes.data.raw_tx );
 
 if( pushRawTxRes.code !== 200 ){
