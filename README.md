@@ -77,7 +77,7 @@ app.get('/my-custom/api/address/get-balance/:address', async(req, res)=>{
 const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
 ```
 
-![Logo](git-imgs/200.24px.png) Success
+![Logo](git-imgs/200.18px.png) Success
 ```javascript
 {
   "code": 200,
@@ -96,7 +96,7 @@ const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
 ```
 
-![Logo](git-imgs/500.24px.png) Error or Warning
+![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
   "code": <code>, // !200
