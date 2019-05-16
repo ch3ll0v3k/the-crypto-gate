@@ -96,7 +96,11 @@ const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPy
 
 const balanceRes = await TCG.getAddressBalance( 'WRONG-ADDRESS' ));
 
-{ "code": <code>, "msg": "Description ..." }
+{
+  "code": <int>, // !200
+  "msg": "Description ...",
+  "data": {}
+}
 ```
 
 -----
@@ -132,15 +136,13 @@ const res = await TCG.getAddressUnspent( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ))
 
 ![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
-
 const res = await TCG.getAddressUnspent( 'WRONG-ADDRESS' ));
 
 {
-  "code": <code>, // !200
-  "msg": "WRONG-ADDRESS has no matching Script",
+  "code": <int>, // !200
+  "msg": "Description ...",
   "data": {}
 }
-
 ```
 -----
 
@@ -253,8 +255,8 @@ const res = await TCG.getBlockByID( 575217 );
 ![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
-  "code": <code>,
-  "msg": "<description>",
+  "code": <int>, // !200
+  "msg": "Description ...",
   "data": {}
 }
 ```
@@ -263,12 +265,12 @@ const res = await TCG.getBlockByID( 575217 );
 
 #### Method: estimateSmartFee
 
-
+```
 Get the best transaction fee for the moment.
 Within next blocks: Min 2, Max Inf.
 
 The lower <withInNextBlocks>, the heigher <tx-fee> will be
-
+```
 
 ![Logo](git-imgs/200.18px.png) Success
 ```javascript
@@ -290,8 +292,8 @@ const res = await TCG.estimateSmartFee( <With in next blocks> );
 ![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
-  "code": <code>,
-  "msg": "<description>",
+  "code": <int>, // !200
+  "msg": "Description ...",
   "data": {}
 }
 ```
@@ -300,12 +302,12 @@ const res = await TCG.estimateSmartFee( <With in next blocks> );
 
 #### Method: getKeyPair
 
-
+```
 Create new (random) CryptoPair => Public && Private key
 
 WARNING: 
   You must store it in your own database or you will lose all your Crypto 
-
+```
 
 ![Logo](git-imgs/200.18px.png) Success
 ```javascript
@@ -326,8 +328,8 @@ const KeyPair = await TCG.getKeyPair();
 ![Logo](git-imgs/500.18px.png) Error or Warning
 ```javascript
 {
-  "code": <code>,
-  "msg": "<description>",
+  "code": <int>, // !200
+  "msg": "Description ...",
   "data": {}
 }
 ```
@@ -337,17 +339,20 @@ const KeyPair = await TCG.getKeyPair();
 #### Info: Create && Broadcast Transaction
 
 options (optional):
-  - allowDust: 
+  - **allowDust**: 
     Allow send vary small amount (dust)
 
-  - feeType: 
+  - **feeType**: 
     Try send within next blocks. Can be any of ( 2,3,4,5,6 ). Default: 3
 
-  - tryToFitTxFee:
+  - **tryToFitTxFee**:
     if amount plus Tx-Fee is less than total balance, it will try reduce dest. amount to fit transaction cost in transaction itself.
     NOTE: Works only if dest object contains 1 dest. address
 
-###### Send to many ...
+```
+Send to many ...
+```
+
 ```javascript
 const sendOutToMany = [
   {address: '1GPwAmZFSZ3vFy1mfJqpDcNqrmXZjMxYV', amount: 0.034},
@@ -357,7 +362,10 @@ const sendOutToMany = [
 
 ```
 
-###### Send to one ...
+```
+Send to one ...
+```
+
 ```javascript
 const sendOutToOne = [
   {address: '1GPwAmZFSZ3vFy1mfJqpDcNqrmXZjMxYV', amount: (+aliceBalanceRes.data.balance) },
@@ -394,7 +402,10 @@ if( TxRes.code !== 200 ){
 }
 ```
 
-###### Broadcast transaction into Blockchain
+```
+Broadcast transaction into Blockchain
+```
+
 ```javascript
 const pushRawTxRes = await TCG.pushRawTransaction( TxRes.data.raw_tx );
 
