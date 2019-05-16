@@ -67,10 +67,8 @@ module.exports.createRawTransaction = async function( TCG, sec_key, dest_bundle,
       }
 
       amount = BTCToSatoshi( amount );
-
       const res = await TCG.getAddressUnspent( src_address );
-
-      console.json({addressUnspent: res.data});
+      // console.json({addressUnspent: res.data});
 
       if( res.code !== 200 ){
         resolve(res);
@@ -99,21 +97,21 @@ module.exports.createRawTransaction = async function( TCG, sec_key, dest_bundle,
 
       }
 
-      console.warn({
-        input_txs_used, 
-        total_send_out_value, 
-        send_total_out,
-        amount,
-      });
+      // console.warn({
+      //   input_txs_used, 
+      //   total_send_out_value, 
+      //   send_total_out,
+      //   amount,
+      // });
 
       let fit = true;
 
       if( total_send_out_value < send_total_out ){
-        console.warn({
-          'total_send_out_value < send_total_out': true,
-          total_send_out_value,
-          send_total_out,
-        });
+        // console.warn({
+        //   'total_send_out_value < send_total_out': true,
+        //   total_send_out_value,
+        //   send_total_out,
+        // });
 
         if( options.tryToFitTxFee && dest_bundle.length == 1 ){
           amount = total_send_out_value - MAX_FEE;
@@ -124,15 +122,15 @@ module.exports.createRawTransaction = async function( TCG, sec_key, dest_bundle,
         }
       } 
 
-      console.warn({
-        amount,
-        MAX_FEE,
-        total: (amount +MAX_FEE),
-      });
+      // console.warn({
+      //   amount,
+      //   MAX_FEE,
+      //   total: (amount +MAX_FEE),
+      // });
 
       // --------------------------------------------
       const send_back_out = total_send_out_value -amount -MAX_FEE;
-      console.info({send_back_out});
+      // console.info({send_back_out});
 
       // 1-to-1 or 1-to-many
       for( let dest of dest_bundle ){
@@ -140,14 +138,14 @@ module.exports.createRawTransaction = async function( TCG, sec_key, dest_bundle,
           dest.amount = BTCToSatoshi(dest.amount) -MAX_FEE;
         }
 
-        console.info({add: dest.address, amount: dest.amount });
+        // console.info({add: dest.address, amount: dest.amount });
         txb.addOutput( dest.address, dest.amount );
       }
 
       // --------------------------------------------
       // if left over send it back 
       if( send_back_out > 0 ){ 
-        console.info({send_back_out: true, amount: send_back_out})
+        // console.info({send_back_out: true, amount: send_back_out})
         txb.addOutput( src_address, send_back_out );
       }
 
