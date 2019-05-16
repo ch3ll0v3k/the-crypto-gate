@@ -39,6 +39,39 @@ const TCG = new theCryptoGate({
 
 -----
 
+#### Info: TheCryptoGate library is API-Ready
+
+
+```javascript
+// express
+app.get('/my-custom/api/address/get-balance/:address', async(req, res)=>{
+
+  // ...
+
+  const balanceRes = await TCG.getAddressBalance( address ));
+
+  res.header('Content-Type', 'application/json');
+  res.json( balanceRes );
+
+  // ...
+
+});
+```
+
+```json
+{
+  "code": 200,
+  "msg": "OK",
+  "data": {
+    "balance": 0.00137764,
+    "confirmed": 0.00137764,
+    "unconfirmed": 0
+  }
+}
+```
+
+-----
+
 #### Method: getAddressBalance
 ```javascript
 const balanceRes = await TCG.getAddressBalance( '15FZLWefShJjwAuDcGgMAhUXXHMgXPyjGb' ));
