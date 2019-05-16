@@ -1,6 +1,6 @@
 {
   "name": "the-crypto-gate",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "The-crypto-gate: Blockchain API Library",
   "main": "init.js",
   "scripts": {
