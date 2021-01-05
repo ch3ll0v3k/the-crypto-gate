@@ -24,7 +24,7 @@
   "author": "https://github.com/ch3ll0v3k",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bitcoinjs-lib": "^5.0.3",
     "keythereum": "^1.0.4",
     "litecore-lib": "^0.13.22",
